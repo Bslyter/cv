@@ -1,6 +1,6 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: Blake Slyter's Resume"
+author: Blake Slyter
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -34,8 +34,9 @@ position_data <- read_csv('positions.csv') %>%
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
-      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      section %in% 'experience' ~ 'positions', 
+      section %in% 'publications' ~ 'writings',
+      section %in% c('Skills', 'License') ~ 'other',
       TRUE ~ section
     )
   ) 
@@ -54,38 +55,18 @@ Contact {#contact}
 
 
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
-
-
-
-Language Skills {#skills}
---------------------------------------------------------------------------------
-
-
-```{r}
-skills <- tribble(
-  ~skill,               ~level,
-  "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
-  "SQL",                3,
-  "C++",                3,
-  "AWK",                3
-)
-build_skill_bars(skills)
-```
+- <i class="fa fa-envelope"></i> blake.slyter@asu.edu
+- <i class="fa fa-twitter"></i> “”
+- <i class="fa fa-github"></i> github.com/bslyter
+- <i class="fa fa-link"></i> “”
+- <i class="fa fa-phone"></i> “”
 
 
 
 Open Source Contributions {#open-source}
 --------------------------------------------------------------------------------
 
-All projects available at `github.com/nstrayer/<name>`
+All projects available at `github.com/bslyter/<name>`
 
 
 - `shinysense`: R package to use sensor data in Shiny apps
@@ -93,18 +74,11 @@ All projects available at `github.com/nstrayer/<name>`
 - `slid3r`: D3 add-on for fully svg slider inputs
 
 
-More info {#more-info}
---------------------------------------------------------------------------------
-
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
-
 
 Disclaimer {#disclaimer}
 --------------------------------------------------------------------------------
 
 Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
-
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
 
 Last updated on `r Sys.Date()`.
 
@@ -114,14 +88,11 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Blake Slyter {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
-
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-"
+intro_text <- "Experienced analyst with a demonstrated history of working in the education management industry. Skilled in Data Analytics, Lead Generation, Product Support, and Mentorship. Strong business development professional with a Bachelor of Arts (B.A.) focused in Leadership and Organization Studies from Chapman University."
 
 
 cat(sanitize_links(intro_text))
@@ -153,4 +124,11 @@ Selected Writing {data-icon=newspaper}
 position_data %>% print_section('writings')
 ```
 
+Other {data-icon=newspaper}
+--------------------------------------------------------------------------------
+
+
+```{r}
+position_data %>% print_section('other')
+```
 
